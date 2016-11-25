@@ -7,7 +7,23 @@
 	</p>
 	<p>
 	<api.openweathermap.org/data/2.5/weather?q=Glasgow,uk/>
-	</p>
+	</p<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+        <br> 
+        <form class="form-inline text-center first-child" role="form" id="searchform" action="/find" method="get">
+            <div class="form-group">
+                <label class="sr-only" for="help-search">Search</label>
+                <input  id="q" name="q" type="text" class="form-control border-color col-sm-12" id="help-search" 
+                onfocus="this.value = (this.value=='London, UK')? '' : this.value;"
+                placeholder="Your city name" data-original-title="" title="">
+            </div>
+        <button type="submit" class="btn btn-orange"><i class="fa fa-question-circle"></i> Search</button>
+        </form>
+     </div> 
+    </div>
+    <br>
+	
 	<div class="widgets">
         <hr>
         <h2 class="text-color widgets__header" align="center"> Current weather and forecasts in your city  </h2>        
@@ -58,6 +74,72 @@
 					<p id="weather-widget-warning" class="weather-widget__warning"></p>
 				</div>
 			</div>
+			<!-- weather-graphic  -->
+			<div class="weather-graphic col-lg-8 col-md-8 col-sm-8">
+			  <ul id="tabs" class="nav nav-tabs  weather-graphic__tabs">
+				<li class="active"><a href="#forecast-main" data-toggle="tab" id="forecast-main_a" class="weather-graphic__link">Main</a></li>
+				<li><a href="#daily_chart" data-toggle="tab" id="daily_chart_a" class="weather-graphic__link">Daily</a></li>
+				<li><a href="#hourly_list" data-toggle="tab" id="hourly_list_a" class="weather-graphic__link">Hourly</a></li>
+				<li><a href="#forecast-chart" data-toggle="tab" id="forecast-chart_a" class="weather-graphic__link">Chart</a></li>
+				<li><a href="#map" data-toggle="tab" id="map_a" class="weather-graphic__link">Map</a></li>
+			  </ul>
+			  <div class="tab-content"><!--Main--> 
+				<h3 class="weather-graphic__header">Hourly weather forecast<span id="city-name-forecast"></span></h3>
+				<div id="forecast-main" class="tab-pane active">
+				  <div id="chart_small" style="width: 650px; height: 200px;" class="weather-graphic__line"></div>
+				  <div id="forecast_small" class="scale-of-measurement"></div>
+                  <h3 class="weather-graphic__header">13 day weather forecast</h3>
+                  <div id="forecast_table" class="row weather-graphic__hourly-list">                                                
+                    <div id="daily_list" class="weather-graphic__table"></div>
+                  </div>
+				</div><!--Daily-->
+				<div id="daily_chart" class="tab-pane">
+				  <div id="chart" style="width: 650px; height: 320px; margin: 0 auto"></div>
+				</div><!--Hourly-->
+				<div id="hourly_list" class="tab-pane">
+				  <div id="hourly_long_list" class="weather-graphic__hourly-list"></div>
+				</div><!--Charts-->
+				<div id="forecast-chart" class="tab-pane">
+				  <ul class="nav nav-tabs">
+					<li> <a href="" rel="tooltip" title="Temperature" id="temp">Temperature</a></li>
+					<li> <a href="" rel="tooltip" title="Wind" id="wind">Wind</a></li>
+					<li> <a href="" rel="tooltip" title="Pressure" id="pressure">Pressure</a></li>
+					<li> <a href="" rel="tooltip" title="Precipitation" id="precipitation">Precipitation              </a></li>
+					<div id="chart-forecast" style="width: 600px; height: 400px; margin: 0 auto">             </div>
+				  </ul>
+				</div><!--History-->
+				<div id="history" class="tab-pane">
+				  <div id="history_days"></div>
+				</div><!--Stations-->
+				<div id="stations" class="tab-pane">
+				  <h4 id="stations_title"><a href="/Maps?zoom=10&amp;lat=&amp;lon=&amp;layers=B0TFFFFT"> Stations.                     </a></h4>
+				  <table class="table">
+					<thead>
+					  <tr>
+						<th>R</th>
+						<th>Stations name</th>
+						<th>temp (°C)</th>
+						<th></th>
+						<th>dist (km)</th>
+						<th>gap (hh:mm:ss)</th>
+					  </tr>
+					</thead>
+				  </table>
+				</div><!--Map-->
+				<div class="tab-pane">
+				</div><!--satellite-->				
+                <div class="map map--hidden" id="map">
+                    <h4>Precipitation</h4>
+                    <div id="map-container">
+                        <div id="map_canvas" style="width: 610px; height: 400px;"></div>
+                    </div>
+                </div>
+			  </div>
+			</div> <!-- / weather-graphic -->
+		</div> 
+    </div> <!-- / .row -->        
+</div> <!-- / .container -->
+
 </body>
 
 </html>
