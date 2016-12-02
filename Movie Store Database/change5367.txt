@@ -1,0 +1,29 @@
+-- Ananeosi eggrafis ston pinaka 'ypallilos'
+
+UPDATE `ypallilos` SET `AFM`=273129673,`Onoma`= 'Maria',`eponimo`='Stamatellatou',`Fylo`='Gynaika',`E-mail`='maraki_stam@yahoo.gr',`Biographiko shmeioma`='Apofoitos TEI Logistikis',`ID Katastimatos`=3
+WHERE `AFM`=840019524;
+
+-- Ananeosi eggrafis ston pinaka 'kathgoria'
+
+UPDATE `kathgoria` SET `ID`=4,`Onoma`='Kwmwdia',`ID_Yp`=NULL
+WHERE `Onoma`='Mecha';
+
+-- Ananeosi eggrafis ston pinaka 'antigrafo'
+
+UPDATE `antigrafo` SET `ID tainias`=2,`A/A`=3,`Eidos`='Blue-Ray',`Hmerominia_Enoik`='2012-05-18-',`Hmerominia_Epis`='2012-05-20',`Kodikos pelati`=1
+WHERE `ID tainias`=1;
+
+-- Diagrafi eggrafhs ston pinaka 'pelati'
+
+DELETE FROM `pelatis` WHERE `Kodikos`=3;
+
+-- Diagrafi eggrafhs ston pinaka 'suntelestis'
+
+DELETE FROM `suntelestis` WHERE `Eponimo`='Bay';
+
+-- Diagrafi eggrafhs ston pinaka 'anikei'
+
+DELETE FROM `anikei` WHERE `ID tainias`=3;
+
+ALTER TABLE `tainia` DROP `Perigrafh`, ADD `Diarkeia` TIME
+NOT NULL;

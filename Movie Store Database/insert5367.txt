@@ -1,0 +1,162 @@
+-- Eisagogi dedomenon ston pinaka 'katastima'
+
+INSERT INTO `katastima` (`ID`,`Hmeromhnia`,`Poli`,`Odos`,`Arithmos`) 
+VALUES (1,'2005-09-24','Patra','Maizonos',12);
+
+INSERT INTO `katastima` (`ID`,`Hmeromhnia`,`Poli`,`Odos`,`Arithmos`) 
+VALUES (2,'2002-03-10','Athina','Suntagmatos',7);
+
+INSERT INTO `katastima` (`ID`,`Hmeromhnia`,`Poli`,`Odos`,`Arithmos`) 
+VALUES (3,'2004-06-05','Thessaloniki','Ermou',28);
+
+-- Eisagogi dedomenon ston pinaka 'ypallilos'
+
+INSERT INTO `ypallilos` (`AFM`,`Onoma`,`Eponimo`,`Fylo`,`E-mail`,`Biographiko shmeioma`,`ID Katastimatos`)
+VALUES (840019524,'Aleksandros','Roumeliotis','Antras',NULL,'Exei apoktisei ptuxio dioikisis epixeirisewn kai exei doulepsei sto parelthon se katastima me athlitika eidi',3);
+
+INSERT INTO `ypallilos` (`AFM`,`Onoma`,`Eponimo`,`Fylo`,`E-mail`,`Biographiko shmeioma`,`ID Katastimatos`)
+VALUES (861383915,'Sofia','Katsimpa','Gunaika','sof_kats@hotmail.com',NULL,2);
+
+INSERT INTO `ypallilos` (`AFM`,`Onoma`,`Eponimo`,`Fylo`,`E-mail`,`Biographiko shmeioma`,`ID Katastimatos`)
+VALUES (409601345,'Dimitris','Sakellariou','Antras','mitsakos89@gmail.com','Katoxos ptuxiou mhxanikou ypologistwn kai pliroforikhs',1);
+
+-- Eisagogi dedomenon ston pinaka 'tilefona'
+
+INSERT INTO `tilefona` (`tilefono`,`Kodikos katastimatos`) 
+VALUES ('2108455390',2);
+
+INSERT INTO `tilefona` (`tilefono`,`Kodikos katastimatos`) 
+VALUES ('2610329743',1);
+
+INSERT INTO `tilefona` (`tilefono`,`Kodikos katastimatos`) 
+VALUES ('2310137805',3);
+
+-- Eisagogi dedomenon ston pinaka 'suntelestis'
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (1,'Hugh','Jackman',1968,'Australia');
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (2,'Scarlett','Johansson',1984,'USA');
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (3,'Quentin','Tarantino',1963,'USA');
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (4,'Steven','Spielberg',1946,'USA');
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (5,'Michael','Bay',1965,'USA');
+
+INSERT INTO `suntelestis` (`ID`,`Onoma`,`Eponimo`,`Etos`,`Xwra`)
+VALUES (6,'Jach','Galifianakis',1969,'USA');
+
+-- Eisagogi dedomenon ston pinaka 'skinothetis'
+
+INSERT INTO `skinothetis` (`ID`,`Titlos prwths tainias`,`Etos prwths tainias`)
+VALUES (4,'Amblin',1968);
+
+INSERT INTO `skinothetis` (`ID`,`Titlos prwths tainias`,`Etos prwths tainias`)
+VALUES (5,'Bad Boys',1995);
+
+INSERT INTO `skinothetis` (`ID`,`Titlos prwths tainias`,`Etos prwths tainias`)
+VALUES (3,'Reservoir Dogs',1992);
+
+-- Eisagogi dedomenon ston pinaka 'tainia'
+
+INSERT INTO `tainia` (`ID`,`Titlos`,`Xwra`,`Etos`,`Oscar`,`Perigrafh`,`ID skinotheti`)
+VALUES (1,'Jurassic Park','USA','1993','Yes','Dinosaurs come back to life posing a serious threat to humanity',4);
+
+INSERT INTO `tainia` (`ID`,`Titlos`,`Xwra`,`Etos`,`Oscar`,`Perigrafh`,`ID skinotheti`)
+VALUES (2,'Kill Bill','Japan','2003','Yes','Splatter movie.Protagonist has one aim, to kill Bill',3);
+
+INSERT INTO `tainia` (`ID`,`Titlos`,`Xwra`,`Etos`,`Oscar`,`Perigrafh`,`ID skinotheti`)
+VALUES (3,'Transformers','USA','2007','No','Transforming Robot-Vehicles are discovered on Earth. A menacing war is approaching',5);
+
+-- Eisagogi dedomenon ston pinaka 'diathesimotita'
+
+INSERT INTO `diathesimotita` (`ID katastimatos`,`ID tainias`)
+VALUES (3,3);
+
+INSERT INTO `diathesimotita` (`ID katastimatos`,`ID tainias`)
+VALUES (1,2);
+
+INSERT INTO `diathesimotita` (`ID katastimatos`,`ID tainias`)
+VALUES (2,1);
+
+-- Eisagogi dedomenon ston pinaka 'kathgoria'
+
+INSERT INTO `kathgoria` (`ID`,`Onoma`,`ID_Yp`)
+VALUES (1,'Epistimonikh Fantasia',2);
+
+INSERT INTO `kathgoria` (`ID`,`Onoma`,`ID_Yp`)
+VALUES (2,'Drash',NULL);
+
+INSERT INTO `kathgoria` (`ID`,`Onoma`,`ID_Yp`)
+VALUES (3,'Mecha',1);
+
+-- Eisagogi dedomenon ston pinaka 'anikei'
+
+INSERT INTO `anikei` (`ID kathgorias`,`ID tainias`)
+VALUES (1,1);
+
+INSERT INTO `anikei` (`ID kathgorias`,`ID tainias`)
+VALUES (2,2);
+
+INSERT INTO `anikei` (`ID kathgorias`,`ID tainias`)
+VALUES (3,3);
+
+-- Eisagogi dedomenon ston pinaka 'exei'
+
+INSERT INTO `exei` (`ID suntelesti`,`ID tainias`)
+VALUES (1,3);
+
+INSERT INTO `exei` (`ID suntelesti`,`ID tainias`)
+VALUES (3,1);
+
+INSERT INTO `exei` (`ID suntelesti`,`ID tainias`)
+VALUES (4,2);
+
+-- Eisagogi dedomenon ston pinaka 'ithopoios'
+
+INSERT INTO `ithopoios` (`ID`,`Ypsos`,`Xarak_Gnorisma`)
+VALUES (1,1.76,'Gymnasmenos kai me idiaiterh ikanotita sthn summetoxi tainiwn drashs');
+
+INSERT INTO `ithopoios` (`ID`,`Ypsos`,`Xarak_Gnorisma`)
+VALUES (2,1.68,'Spania omorfia kai me ikanonita na ypoduetai empeira diaforous rolous');
+
+INSERT INTO `ithopoios` (`ID`,`Ypsos`,`Xarak_Gnorisma`)
+VALUES (6,1.70,'Apisteuta asteios, dinei aristh ermhneia se kwmikes tainies, euswmos me pukno mousi'); 
+
+-- Eisagogi ston pinaka 'summetoxi'
+
+INSERT INTO `summetoxi` (`ID ithopoiou`,`ID tainias`)
+VALUES (1,2);
+
+INSERT INTO `summetoxi` (`ID ithopoiou`,`ID tainias`)
+VALUES (2,3);
+
+INSERT INTO `summetoxi` (`ID ithopoiou`,`ID tainias`)
+VALUES (6,1);
+
+-- Eisagogi ston pinaka 'pelatis'
+
+INSERT INTO `pelatis` (`Kodikos`,`Onoma`,`Eponimo`,`Hmeromhnia_egr`,`Tilefono`)
+VALUES (1,'Kostas','Zafeiropoulos','2010-10-18','2610731836');
+
+INSERT INTO `pelatis` (`Kodikos`,`Onoma`,`Eponimo`,`Hmeromhnia_egr`,`Tilefono`)
+VALUES (2,'Antonis','Aleksiou','2011-04-05','2610106948');
+
+INSERT INTO `pelatis` (`Kodikos`,`Onoma`,`Eponimo`,`Hmeromhnia_egr`,`Tilefono`)
+VALUES (3,'Katerina','Moutsina','2009-07-24','2610781041');
+
+-- Eisagogi dedomenon ston pinaka 'antigrafo'
+
+INSERT INTO `antigrafo` (`ID tainias`,`A/A`,`Eidos`,`Hmerominia_Enoik`,`Hmerominia_Epis`,`Kodikos pelati`)
+VALUES (3,4,'Blue-Ray','2011-06-13','2011-06-15',2);
+
+INSERT INTO `antigrafo` (`ID tainias`,`A/A`,`Eidos`,`Hmerominia_Enoik`,`Hmerominia_Epis`,`Kodikos pelati`)
+VALUES (1,1,'DVD','2010-01-02','2010-01-04',3);
+
+INSERT INTO `antigrafo` (`ID tainias`,`A/A`,`Eidos`,`Hmerominia_Enoik`,`Hmerominia_Epis`,`Kodikos pelati`)
+VALUES (2,2,'DVD','2010-11-27','2010-011-29',1);

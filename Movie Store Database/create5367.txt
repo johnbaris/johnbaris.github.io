@@ -1,0 +1,160 @@
+-- Dhmiourgia Vasis
+
+CREATE DATABASE IF NOT EXISTS am5367 DEFAULT CHARSET=greek;
+USE am5367;
+
+-- Dhmiourgia Pinaka 'katastima'
+
+CREATE TABLE IF NOT EXISTS `katastima` (
+	`ID` INT(1) NOT NULL AUTO_INCREMENT,
+	`Hmeromhnia` DATE NOT NULL,
+	`Poli` VARCHAR(14) NOT NULL,
+	`Odos` VARCHAR(18) NOT NULL,
+	`Arithmos` INT(2) NOT NULL,
+	PRIMARY KEY (`ID`) 
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'ypallilos'
+
+CREATE TABLE IF NOT EXISTS `ypallilos` (
+	`AFM` INT(9) NOT NULL,
+	`Onoma` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Eponimo` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Fylo` VARCHAR(7) NOT NULL,
+	`E-mail` VARCHAR(40) NULL,
+	`Biographiko shmeioma` TEXT,
+	`ID Katastimatos` INT(1) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`AFM`),
+	UNIQUE (`E-mail`),
+	CONSTRAINT YPAL
+	FOREIGN KEY (`ID Katastimatos`) REFERENCES `Katastima`(`ID`)
+	ON DELETE CASCADE ON UPDATE CASCADE
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'tilefona'
+
+CREATE TABLE IF NOT EXISTS `tilefona` (
+	`Tilefono` VARCHAR(11) NOT NULL,
+	`Kodikos katastimatos` INT(1) NOT NULL,
+	PRIMARY KEY (`Tilefono`,`Kodikos Katastimatos`),
+	CONSTRAINT TIL
+	FOREIGN KEY (`Kodikos Katastimatos`) REFERENCES `Katastima`(`ID`)
+	ON DELETE CASCADE ON UPDATE CASCADE
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'suntelestis'
+
+CREATE TABLE IF NOT EXISTS `suntelestis` (
+	`ID` INT(1) NOT NULL AUTO_INCREMENT,
+	`Onoma` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Eponimo` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Etos` INT(4) NOT NULL,
+	`Xwra` VARCHAR(16) NOT NULL,
+	PRIMARY KEY (`ID`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'skinothetis'
+
+CREATE TABLE IF NOT EXISTS `skinothetis` (
+	`ID` INT(1) NOT NULL AUTO_INCREMENT,
+	`Titlos prwths tainias` VARCHAR(30) NOT NULL,
+	`Etos prwths tainias` INT(4) NOT NULL,
+	PRIMARY KEY (`ID`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'tainia'
+
+CREATE TABLE IF NOT EXISTS `tainia` (
+	`ID` INT(1) NOT NULL,
+	`Titlos` VARCHAR(30) NOT NULL DEFAULT 'unknown',
+	`Xwra` VARCHAR(16) NOT NULL,
+	`Etos` INT(4) NOT NULL,
+	`Oscar` VARCHAR(3) NOT NULL,
+	`Perigrafh` TEXT,
+	`ID skinotheti` INT(1) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`ID`),
+	UNIQUE (`Titlos`),
+	CONSTRAINT TAIN
+	FOREIGN KEY (`ID skinotheti`) REFERENCES `skinothetis`(`ID`)
+	ON DELETE CASCADE ON UPDATE CASCADE
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'diathesimotita tainiwn'
+
+CREATE TABLE IF NOT EXISTS `diathesimotita` (
+	`ID katastimatos` INT(1) NOT NULL AUTO_INCREMENT,
+	`ID tainias` INT(1) NOT NULL,
+	PRIMARY KEY (`ID Katastimatos`,`ID Tainias`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+	
+-- Dhmiourgia Pinaka 'kathgoria' 
+
+CREATE TABLE IF NOT EXISTS `kathgoria` (
+	`ID` INT(2) NOT NULL AUTO_INCREMENT,
+	`Onoma` VARCHAR(20) NOT NULL,
+	`ID_Yp` INT(2) DEFAULT NULL,
+	PRIMARY KEY (`ID`),
+	KEY (`ID_Yp`),
+	UNIQUE (`Onoma`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'anikei'
+
+CREATE TABLE IF NOT EXISTS `anikei` (
+	`ID kathgorias` INT(1) NOT NULL AUTO_INCREMENT,
+	`ID tainias` INT(1) NOT NULL, 
+	PRIMARY KEY (`ID Kathgorias`,`ID Tainias`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'exei suntelesti'
+
+CREATE TABLE IF NOT EXISTS `exei` (
+	`ID suntelesti` INT(1) NOT NULL AUTO_INCREMENT,
+	`ID tainias` INT(1) NOT NULL,
+	PRIMARY KEY (`ID Suntelesti`,`ID Tainias`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+	
+
+-- Dhmiourgia Pinaka `ithopoios`
+
+CREATE TABLE IF NOT EXISTS `ithopoios` (
+	`ID` INT(1) NOT NULL AUTO_INCREMENT,
+	`Ypsos` FLOAT(3,2) NULL,
+	`Xarak_Gnorisma` TEXT NOT NULL,
+	PRIMARY KEY (`ID`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'summetoxi'
+
+CREATE TABLE IF NOT EXISTS `summetoxi` (
+	`ID ithopoiou` INT(1) NOT NULL AUTO_INCREMENT,
+	`ID tainias` INT(1) NOT NULL,
+	PRIMARY KEY (`ID ithopoiou`,`ID tainias`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'pelatis'
+
+CREATE TABLE IF NOT EXISTS `pelatis` (
+	`Kodikos` INT(1) NOT NULL,
+	`Onoma` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Eponimo` VARCHAR(15) NOT NULL DEFAULT 'unknown',
+	`Hmeromhnia_egr` DATE NOT NULL,
+	`Tilefono` VARCHAR(11) NOT NULL,
+	PRIMARY KEY (`Kodikos`)
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
+-- Dhmiourgia Pinaka 'antigrafo'
+
+CREATE TABLE IF NOT EXISTS `antigrafo` (
+	`ID tainias` INT(1) NOT NULL,
+	`A/A` INT(1) NOT NULL,
+	`Eidos` VARCHAR(10) NOT NULL,
+	`Hmerominia_Enoik` DATE NOT NULL,
+	`Hmerominia_Epis` DATE NOT NULL,
+	`Kodikos pelati` INT(1) NOT NULL,
+	PRIMARY KEY (`ID tainias`,`A/A`),
+	CONSTRAINT ANTIGR
+	FOREIGN KEY (`Kodikos pelati`) REFERENCES `pelatis`(`Kodikos`)
+	ON DELETE CASCADE ON UPDATE CASCADE
+)	ENGINE = InnoDB CHARACTER SET greek COLLATE greek_general_ci;
+
