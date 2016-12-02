@@ -1,0 +1,1 @@
+[~,confusion, class_rate,] = knn(test_classes(1,:),train_classes(1,:),train_features,test_features,1)

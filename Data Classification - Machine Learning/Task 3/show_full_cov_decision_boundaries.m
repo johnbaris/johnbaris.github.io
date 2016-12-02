@@ -1,0 +1,1 @@
+plotDecisionBoundaries(train_features(:,1:2), train_classes,test_classes, {'1','2','3','4','5','6','7','8','9','0'}, @gaussian_full)

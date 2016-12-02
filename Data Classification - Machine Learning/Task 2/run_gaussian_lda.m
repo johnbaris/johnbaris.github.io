@@ -1,0 +1,1 @@
+[~,confusion, class_rate, determinant] = gaussian_lda(test_classes(1,:),train_classes(1,:),train_features,test_features,1)
